@@ -14,9 +14,7 @@
         while($row = $result->fetch_assoc()) {
             array_push($filmes, $row);
         }
-        
-    } else {
-        echo "0 results";
+
     }
 
     $conn = NULL;
@@ -28,8 +26,13 @@
         
         <ul>
             <?php foreach($filmes as $filme): ?>
-                <li>Nome: <?php echo $filme['nome']; ?> | Preço : R$ <?php echo $filme['valor']; ?> | Detalhes</li>
+                <li>Nome: <?php echo $filme['nome']; ?> | Preço : R$ <?php echo $filme['valor']; ?> |
+                 <a href="filme.php?id=<?php echo $filme['id']; ?>" class="btn btn-info btn-detalhes">Detalhes</a>
+                </li>
             <?php endforeach; ?>
         </ul>
+
+        <a href="./" class="btn btn-info">Voltar</a>
     </div>
+
 <?php require_once('./includes/footer.php'); ?>

@@ -1,29 +1,35 @@
-<?php 
-    session_start();
-    require_once('./classes/usuario.php');
+<?php require_once('./includes/header.php'); ?>
+<?php require_once('./classes/db.php'); ?>
+<?php
+    $db = new Db();
 
-    $user = unserialize($_SESSION['usuario']);
+    if(isset($_GET['id'])){
+
+        $id = $_GET['id'];
+        $conn = $db->connect();
+
+        $sql = "SELECT * FROM filmes WHERE id = ". $id. "";
+        $result = $conn->query($sql);
+        $filme = $result->fetch_assoc();
+
+        $conn = NULL;
+    }
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <h2>Nome do filme: A odisséia</h2>
 
-        <p class="sinopse">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, vero? Asperiores, repudiandae labore. Quibusdam asperiores temporibus placeat, nisi tempora ducimus laudantium accusantium mollitia commodi nesciunt in. Eligendi aspernatur id sint.
-        </p>
+    <div class="container">
+
+        <h2>Nome do Filme: <?php echo $filme['nome']; ?></h2>
+
+        <p class="valor">Valor do ingresso: R$ <?php echo $filme['valor']; ?></p>
+
+        <p class="sinopse"><?php echo $filme['descricao']; ?></p>
 
         <a href="#" class="btn btn-success">Comprar Ingresso</a>
         <a href="listagem.php" class="btn btn-info">Voltar</a>
     </div>
-</body>
-</html>
+
+
+<?php require_once('./includes/footer.php'); ?>
+    

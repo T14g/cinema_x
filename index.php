@@ -7,6 +7,7 @@
             <li><a href="listagem.php">Listar filmes</a></li>
             <li><a href="#">Logar</a></li>
             <li><a href="admin/cadastra-filme.php">Cadastrar Filme</a></li>
+            <li><a href="admin/cadastra-sessao.php">Cadastrar Sessão</a></li>
         </ul>
     </div>
 
