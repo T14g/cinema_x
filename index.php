@@ -5,7 +5,7 @@
 
         <ul class="action-list">
             <li><a href="listagem.php">Listar filmes</a></li>
-            <li><a href="#">Logar</a></li>
+            <li><a href="login.php">Logar</a></li>
             <li><a href="admin/cadastra-filme.php">Cadastrar Filme</a></li>
             <li><a href="admin/cadastra-sessao.php">Cadastrar Sessão</a></li>
         </ul>

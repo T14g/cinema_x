@@ -44,8 +44,10 @@
                 <label for="descricaoFilme" class="form-label">Descrição do filme</label>
                 <textarea class="form-control" id="descricaoFilme" name="descricao" rows="3" required></textarea>
             </div>
-            <button type="submit" class="btn btn-success" name="submit">Salvar</button>
+            
             <a href="../" class="btn btn-info">Voltar</a>
+            <button type="submit" class="btn btn-success" name="submit">Salvar</button>
+            
         </form>
     </div>
 <?php require_once('../includes/footer.php'); ?>

@@ -70,16 +70,25 @@
                     <?php endforeach; ?>
                 </select>
             </div>
+
             <div class="mb-6">
                 <label for="precoFilme" class="form-label">Horário livre:</label>
+
                 <select class="form-control" name="horario">
-                    <?php foreach($horarios as $h): ?>
-                        <option value="<?php echo $h['id']; ?>"><?php echo $h['horario']; ?></option>
-                    <?php endforeach; ?>
+                        
+                    <?php if(count($horarios) > 0): ?>
+                        <?php foreach($horarios as $h): ?>
+                            <option value="<?php echo $h['id']; ?>"><?php echo $h['horario']; ?></option>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <option value="NULL">Sem horários disponíveis</option>
+                    <?php endif; ?>
+            
                 </select>
             </div>
-            <button type="submit" class="btn btn-success" name="submit">Salvar</button>
+            
             <a href="../" class="btn btn-info">Voltar</a>
+            <button type="submit" class="btn btn-success" name="submit" <?php echo count($horarios) === 0 ? "disabled" : ""; ?> >Salvar</button>
         </form>
     </div>
 <?php require_once('../includes/footer.php'); ?>
