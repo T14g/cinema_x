@@ -1,7 +1,12 @@
+
 <?php 
 
+require_once('db.php');
+
 class Usuario {
-    public $name;
+
+    private $name;
+    private $acesso;
 
     public function get_filmes(){
 
@@ -26,6 +31,31 @@ class Usuario {
         $html .= "</ul>";
 
         echo $html;
+    }
+
+    public function login($email, $senha) {
+
+        $db = new Db();
+        $conn = $db->connect();
+
+        $sql = "SELECT * FROM usuarios WHERE email = '".$email ."' AND senha = '".  $senha. "'";
+
+        $result = $conn->query($sql);
+        $result = $result->fetch_assoc();
+
+        if($result){
+            echo "Logado!";
+            //Se usuário objeto usuário
+
+            //Se admin objeto Admin
+
+            //Se funcionário objeto funcionário
+        }else{
+            echo "Falha ao logar!";
+        }
+
+        $conn = NULL;
+
     }
 
 }
